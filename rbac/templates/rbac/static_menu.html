@@ -1,0 +1,11 @@
+{#动态生成一级菜单#}
+<div class="static-menu">
+    {% for item in menu_list %}
+        <a href="">
+            <span class="icon-warp"><i class="fa {{ item.icon }}"></i></span>
+            {{ item.title }}
+        </a>
+
+    {% endfor %}
+
+</div>

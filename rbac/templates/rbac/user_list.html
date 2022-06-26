@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="luffy-container">
+        <div class="btn-group" style="margin:5px 0">
+                {# 反向生成 #}
+            <a href="{% url 'rbac:user_add' %}" class="btn btn-danger">
+                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                添加用户
+            </a>
+
+
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>邮箱</th>
+                <th>重置密码</th>
+                <th>选项</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in users %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.email }}</td>
+                    <td><a href="{% url 'rbac:user_reset_pwd' pk=data.id %}">重置密码</a></td>
+                    <td>
+
+
+                        <a href="{% url 'rbac:user_edit' pk=data.id %}" class="btn btn-primary">编辑</a>
+                        <a href="{% url 'rbac:user_del' pk=data.id%}" class="btn btn-danger">删除</a>
+
+                    </td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

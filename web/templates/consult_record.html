@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="luffy-container">
+        {% if add_btn %}
+            <div style="margin: 5px 0">
+                {{ add_btn|safe }}
+            </div>
+        {% endif %}
+        {% for body in body_list %}
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+
+                    <div class="float-left"  style="display: inline-block;">
+                        <div>{{ body.1 }}</div>
+                        <br>
+                        <span><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;{{ body.0.name }}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ body.2 }}</span>
+                    </div>
+                    <div class="float-right" style="display: inline-block; float: right; margin: 10px">
+                        <span>{{ body.3 }}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>{{ body.4 }}</span>
+                    </div>
+                </div>
+
+            </div>
+
+        {% endfor %}
+    <nav>
+            <ul class="pagination">
+                {{ pager.page_html|safe }}
+            </ul>
+        </nav>
+    </div>
+
+{% endblock %}

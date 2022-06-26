@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="luffy-container">
+        {% for row in date_info %}
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    {{ row.note }}
+                    <div>
+                        <span><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;{{ row.consultant }}</span>
+
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ row.date }}</span>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+        <nav>
+            <ul class="pagination">
+                {{ pager.page_html|safe }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
